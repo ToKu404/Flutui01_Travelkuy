@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:travelkuy/constant/constant.dart';
 import 'package:travelkuy/models/carousel_model.dart';
+import 'package:travelkuy/models/popular_destinations_model.dart';
 import 'package:travelkuy/widgets/bottom_navbar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -114,13 +115,232 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Padding(
-              padding:
-                  const EdgeInsets.only(left: mPadding * 2, top: mPadding * 3),
+              padding: const EdgeInsets.only(
+                  left: mPadding * 2, top: mPadding * 2, bottom: mPadding),
               child: Text(
                 "Let\'s Booking!",
                 style: mTitleStyle,
               ),
             ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: mPadding * 2),
+              height: 144,
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.only(right: mPadding),
+                          padding: const EdgeInsets.only(left: mPadding * 2),
+                          height: 64,
+                          decoration: BoxDecoration(
+                              color: mFillColor,
+                              borderRadius: BorderRadius.circular(mPadding),
+                              border:
+                                  Border.all(color: mBorderColor, width: 1)),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(
+                                "assets/svg/service_flight_icon.svg",
+                                fit: BoxFit.contain,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: mPadding * 2),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Flight",
+                                      style: mServiceTitleStyle,
+                                    ),
+                                    Text(
+                                      "Feel Freedom",
+                                      style: mServiceSubtitleStyle,
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.only(right: mPadding),
+                          padding: const EdgeInsets.only(left: mPadding * 2),
+                          height: 64,
+                          decoration: BoxDecoration(
+                              color: mFillColor,
+                              borderRadius: BorderRadius.circular(mPadding),
+                              border:
+                                  Border.all(color: mBorderColor, width: 1)),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(
+                                "assets/svg/service_train_icon.svg",
+                                fit: BoxFit.contain,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: mPadding * 2),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Trains",
+                                      style: mServiceTitleStyle,
+                                    ),
+                                    Text(
+                                      "Intercity",
+                                      style: mServiceSubtitleStyle,
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: mPadding,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.only(right: mPadding),
+                          padding: const EdgeInsets.only(left: mPadding * 2),
+                          height: 64,
+                          decoration: BoxDecoration(
+                              color: mFillColor,
+                              borderRadius: BorderRadius.circular(mPadding),
+                              border:
+                                  Border.all(color: mBorderColor, width: 1)),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(
+                                "assets/svg/service_hotel_icon.svg",
+                                fit: BoxFit.contain,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: mPadding * 2),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Hotel",
+                                      style: mServiceTitleStyle,
+                                    ),
+                                    Text(
+                                      "Lets take a break",
+                                      style: mServiceSubtitleStyle,
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.only(right: mPadding),
+                          padding: const EdgeInsets.only(left: mPadding * 2),
+                          height: 64,
+                          decoration: BoxDecoration(
+                              color: mFillColor,
+                              borderRadius: BorderRadius.circular(mPadding),
+                              border:
+                                  Border.all(color: mBorderColor, width: 1)),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(
+                                "assets/svg/service_car_icon.svg",
+                                fit: BoxFit.contain,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: mPadding * 2),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Car Rental",
+                                      style: mServiceTitleStyle,
+                                    ),
+                                    Text(
+                                      "Arround this city",
+                                      style: mServiceSubtitleStyle,
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: mPadding * 2, top: mPadding * 2, bottom: mPadding),
+              child: Text(
+                "Popular Destinations",
+                style: mTitleStyle,
+              ),
+            ),
+            Container(
+              height: 140,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: populars.length,
+                padding: EdgeInsets.symmetric(horizontal: 12),
+                itemBuilder: (BuildContext context, index) {
+                  return Card(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(mPadding),
+                    ),
+                    child: Container(
+                      height: 140,
+                      width: 120,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(mPadding),
+                        border: Border.all(color: mBorderColor, width: 1),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: mPadding, bottom: mPadding * 2),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              populars[index].image,
+                              height: 74,
+                            ),
+                            Text(
+                              populars[index].name,
+                              style: mPopularDestinationTitleStyle,
+                            ),
+                            Text(
+                              populars[index].country,
+                              style: mPopularDestinationSubtitleStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            )
           ],
         ),
       ),
