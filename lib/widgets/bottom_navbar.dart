@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travelkuy/constant/constant.dart';
 
 class BottomNavbar extends StatefulWidget {
-  const BottomNavbar({Key? key}) : super(key: key);
+  const BottomNavbar({Key key}) : super(key: key);
 
   @override
   _BottomNavbarState createState() => _BottomNavbarState();
@@ -33,8 +33,8 @@ class _BottomNavbarState extends State<BottomNavbar> {
           )
         ],
         borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(mPadding),
-            topRight: Radius.circular(mPadding)),
+            topLeft: Radius.circular(mPadding * 3),
+            topRight: Radius.circular(mPadding * 3)),
       ),
       child: BottomNavigationBar(
         items: [
