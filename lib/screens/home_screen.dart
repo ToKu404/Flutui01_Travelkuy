@@ -4,6 +4,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:travelkuy/constant/constant.dart';
 import 'package:travelkuy/models/carousel_model.dart';
 import 'package:travelkuy/models/popular_destinations_model.dart';
+import 'package:travelkuy/models/travelog_model.dart';
 import 'package:travelkuy/widgets/bottom_navbar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -336,6 +337,81 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: mPadding * 2, top: mPadding * 2, bottom: mPadding),
+              child: Text(
+                "Travelog!",
+                style: mTitleStyle,
+              ),
+            ),
+            Container(
+              height: 181,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.only(left: mPadding * 2),
+                itemCount: travlogs.length,
+                itemBuilder: (BuildContext context, index) {
+                  return Container(
+                    margin: EdgeInsets.only(right: mPadding * 2),
+                    width: 220,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Stack(
+                          children: [
+                            Container(
+                              height: 104,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(mPadding),
+                                image: DecorationImage(
+                                    image: AssetImage(travlogs[index].image),
+                                    fit: BoxFit.cover),
+                              ),
+                            ),
+                            Positioned(
+                              child: SvgPicture.asset(
+                                  "assets/svg/travlog_top_corner.svg"),
+                              right: 0,
+                            ),
+                            Positioned(
+                              child: SvgPicture.asset(
+                                  "assets/svg/travelkuy_logo_white.svg"),
+                              right: 8,
+                              top: 8,
+                            ),
+                            Positioned(
+                              child: SvgPicture.asset(
+                                  "assets/svg/travlog_bottom_gradient.svg"),
+                              bottom: 0,
+                            ),
+                            Positioned(
+                              child: Text(
+                                "Travelog " + travlogs[index].name,
+                                style: mTravelogTitleStyle,
+                              ),
+                              bottom: 8,
+                              left: 8,
+                            )
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          travlogs[index].content,
+                          style: mTravelogContentStyle,
+                          maxLines: 3,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          travlogs[index].place,
+                          style: mTravelogPlaceStyle,
+                        ),
+                      ],
                     ),
                   );
                 },
